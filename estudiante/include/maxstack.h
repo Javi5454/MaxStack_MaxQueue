@@ -68,20 +68,49 @@ private:
      */
     queue<element> max_stack;
 
+public:
+
     /**
-     * @brief Checkea el máximo en la pila teniendo en cuenta un elemento
-     * a insertar
-     * @param to_check Número que se quiere insertar
+     * @brief Constructor por defecto
+     */
+    MaxStack();
+
+    /**
+     * @brief Constructor por copia
+     * @param copy La pila que se copiará
+     */
+    MaxStack(const MaxStack &copy);
+
+    /**
+     * @brief Sobrecarga del operador de asignacion
+     * @param copy Pila a copiar
+     * @return Referencia al elemento donde se copia
+     */
+    MaxStack& operator= (const MaxStack &copy);
+
+    /**
+     * @brief Checkea el máximo en la pila
      * @return El máximo a almacenar
      */
     int getMax(int to_check);
 
-public:
+    /**
+     * @brief Indica si la pila está vacía
+     * @return True si está vacía, False si no.
+     */
+    bool is_empty();
+
     /**
      * @brief Devuelve el último elemento insertado en la pila
      * @return Devuele un element
      */
     element top();
+
+    /**
+     * @brief Devuelve el último elemento insertado en la pila
+     * @return Devuele un element
+     */
+    const element top() const;
 
     /**
      * @brief Elimina el último elemento insertado en la pila
@@ -90,9 +119,14 @@ public:
 
     /**
      * @brief Introduce un elemento en la pila
-     * @param to_insert
+     * @param to_insert number to insert
      */
     void push(int to_insert);
+
+    /**
+     * @brief Devuelve el numero de elementos de la pila
+     * @return Entero número elementos de la pila
+     */
 };
 
 #endif // _MAX_STACK_
