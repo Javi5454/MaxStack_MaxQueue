@@ -51,7 +51,7 @@ ostream & operator<<(ostream &flujo, const element &e);
  */
 class MaxStack{
     /**
-     * @page repMaxStack Representación del TDA Sudoku Killer.
+     * @page repMaxStack Representación del TDA MaxStack.
      *
      * @section invMaxStack Invariante de la representación.
      *
