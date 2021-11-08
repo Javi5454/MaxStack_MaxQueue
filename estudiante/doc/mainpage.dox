@@ -1,11 +1,76 @@
-/*! \mainpage Título de la página principal
+/*! \mainpage Práctica2: TDAs lineales. Pilas y Colas
+
+@image html stl.png
 
 # Introducción
 
-A RELLENAR POR EL ESTUDIANTE
+Buenas, somos Adrián Jaén Fuentes y Javier Gómez López, del grupo A2 del DGIIM.
+En esta práctia trabajaremos con la [STL](https://ccia.ugr.es/~jfv/ed1/c++/cdrom4/paginaWeb/stl.htm) de C++,
+más especificamente con los TDA [stack](https://cplusplus.com/reference/stack/stack/)
+y [queue](https://cplusplus.com/reference/queue/queue/).
+
+Estos dos TDAs tienen naturalezas distintas. Por un lado, la pila (stack) es un contenedor de tipo LIFO (last-in first-out)
+y la cola es un contenedor de tipo FIFO (first-in first-out). Ambos TDAs están implementados en la [STL](https://ccia.ugr.es/~jfv/ed1/c++/cdrom4/paginaWeb/stl.htm),
+que es "una colección de estructuras de datos genéricas y algoritmos escritos en C++".
+
+Ambos TDAs nos servirán para desarrollar las clases MaxStack y MaxQueue que se nos pide en la práctica, que nos permiten
+obtener el elemento a consultar dependiendo de la naturaleza del contenedor, así como el máximo elemento almacenado en
+ese momento en el contenedor.
+
+Por tanto, debemos de afrontar las siguientes tareas:
+- Crear una estructura tipo LIFO utilizando únicamente el TDA queue como dato miembro y una estructura FIFO utilizando
+el TDA stack como dato miembro.
+- Ser capaz de consultar el máximo elemento del contenedor en cada momento.
+
+La segunda tarea se solucionará de la siguiente manera: crearemos un struct element, que contenga dos datos tipo int;
+el valor en esa posición del contenedor así como el máximo elemento del contenedor en el momento en el que el dato
+fue introducido en este.
+
+La primera tarea tiene una solución distinta para cada uno de los TDAs a implementar:
+
+### MaxStack
+Es una estructura de tipo LIFO. Por tanto el insertar los elementos no afectan a los máximos que ya se encuentran en la
+cola.
+
+El máximo del nuevo elemento se calculará de la siguiente forma
+'max = getMax(int to_insert)'
+siendo to_insert el elemento a insertar. El método consulta el anterior máximo almacenado, lo compara con 'to_insert' y
+devuelve el mayor de los dos enteros.
+
+### MaxQeue
+Es una estructura de tipo FIFO, por tanto al insertar elementos el resto de máximos si que se ven afectados.
+
+COMPLETAR
+
 
 # Ejecutables
 
-A RELLENAR POR EL ESTUDIANTE
+--
+
+## MaxStack
+
+Este programa está diseñado para probar la clase MaxStack. Para ello, creamos un objeto de la clase MaxStack y se utiliza
+un ejemplo con números enteros.
+
+> __pila_max__ \<Elementos> \<Puntos>
+Se pueden añadir tantos elementos como se desee y además se pueden intercambiar puntos y elementos.
+@pre El número de puntos debe de ser menor o igual que el de elementos
+@param <Elementos> Elementos (int) que se añadirán a la MaxStack.
+@param <Puntos> Cada punto imprime por pantalla el tope de la MaxStack y lo saca de esta.
+@return La salida por defecto muestra el elemento con su máximo que esté en el máximo de la MaxStack cuando aparece un
+punto en la entrada.
+
+Dada una secuencia de datos tipo char, se van leyendo cada uno de estos datos y se va actuando sobre nuestra pila. Un
+"." muestra el elemento del tope de la MaxStack (top()) junto con el máximo que haya en ese momento en la MaxStack, y tras
+esto se saca el elemento de la MaxStack (pop()).
+Si se lee un entero, se procede a introducirlo en la MaxStack (push()). Se calcula el máximo teniendo en cuenta este nuevo
+elemento y se forma el struct element que se introduce en la MaxStack.
+
+La siguiente figura muestra como funcionaría la MaxStack para los parámetros introducidos por el juez.sh (3 2 1 ...)
+
+@image html Pila_max.png
+
+
+
 
 */

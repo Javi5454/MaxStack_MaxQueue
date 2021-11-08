@@ -66,7 +66,7 @@ class MaxQueue{
 
 private:
     /**
-     * @brief Cola formada por datos de tipo element
+     * @brief Pila formada por datos de tipo element
      */
     stack<element> _stack;
 

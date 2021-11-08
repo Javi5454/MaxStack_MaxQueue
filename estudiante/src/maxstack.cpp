@@ -1,7 +1,8 @@
 /**
  * @file maxstack.cpp
  * @brief  Archivo de implementación del TDA MaxStack
- * @author
+ * @author Adrián Jaén
+ * @author Javier Gómez
  */
 
 #include "maxstack.h"
@@ -49,7 +50,13 @@ element MaxStack::top() {
 }
 
 const element MaxStack::top() const{
-    return max_stack.front();
+    if(max_stack.empty()){
+        element empty = {0,0};
+        return empty;
+    }
+    else{
+        return max_stack.front();
+    }
 }
 
 void MaxStack::pop() {
@@ -61,6 +68,13 @@ void MaxStack::push(int to_insert) {
 
     pair_to_insert.value = to_insert;
     pair_to_insert.maximum = getMax(to_insert);
+
+    if(getMax(to_insert) == to_insert){
+        pair_to_insert.maximum = to_insert;
+    }
+    else{
+        pair_to_insert.maximum = top().maximum;
+    }
 
     queue<element> aux;
     aux.push(pair_to_insert);
