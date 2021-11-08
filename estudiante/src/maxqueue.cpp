@@ -6,68 +6,73 @@
 
 #include "maxqueue.h"
 
-ostream & operator<<(ostream &flujo, const element &e){
-    flujo << e.value << " | " << e.maximum << endl;
+ostream & operator<<(ostream &os, const element &e){
+    os << e.value << "," << e.maximum;
 
-    return flujo;
+    return os;
 }
 
+int MaxQueue::size(){
+    return _stack.size();
+}
 
 MaxQueue::MaxQueue() {
-    max_queue;
+    _stack;
 }
 
 MaxQueue::MaxQueue(const MaxQueue &copy) {
-    max_queue = copy.max_queue;
+    _stack = copy._stack;
 }
 
 MaxQueue &MaxQueue::operator=(const MaxQueue &copy) {
     if (&copy != this)
-        max_queue = copy.max_queue;
+        _stack = copy._stack;
 
     return *this;
 }
 
 int MaxQueue::getMax(int to_check) {
-    if(to_check > front().maximum){
+    if(to_check > front().maximum)
         return to_check;
-    }
-    else{
+    else
         return front().maximum;
-    }
 }
 
 bool MaxQueue::is_empty() {
-    return max_queue.empty();
+    return _stack.empty();
 }
 
 element MaxQueue::front() {
-    if(max_queue.empty()){
+    if(_stack.empty()){
         element empty = {0,0};
-
         return empty;
     }
     else {
-        return max_queue.top();;
+        return _stack.top();
     }
 }
 
-element MaxQueue::front() const {
-    return max_queue.top();
-}
-
-element MaxQueue::back() {
-
-}
-
-const element MaxQueue::back() const {
-
-}
-
 void MaxQueue::pop() {
-
+    _stack.pop();
 }
 
 void MaxQueue::push(int to_insert) {
 
+    element e_to_insert{};
+    e_to_insert.value = to_insert;
+    e_to_insert.maximum = to_insert;
+
+    stack<element> aux;
+
+    while (!is_empty()){
+        aux.push({front().value, getMax(to_insert)});
+        _stack.pop();
+    }
+
+    aux.push(e_to_insert);
+
+    while (!aux.empty()){
+        _stack.push(aux.top());
+        aux.pop();
+    }
 }

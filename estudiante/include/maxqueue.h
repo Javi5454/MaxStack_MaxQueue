@@ -26,11 +26,11 @@ struct element{
 
 /**
  * @brief Sobrecarga de operador << para el struct element
- * @param flujo Flujo de salida
+ * @param os Flujo de salida
  * @param e Element a mostrar
- * @return El flujo de salida
+ * @return El os de salida
  */
-ostream & operator<<(ostream &flujo, const element &e);
+ostream & operator<<(ostream &os, const element &e);
 
 /**
  * @brief T.D.A MaxQueue
@@ -49,26 +49,26 @@ ostream & operator<<(ostream &flujo, const element &e);
 
 class MaxQueue{
     /**
-     * @page repMaxQueue Representación del TDA Sudoku Killer.
+     * @page repMaxQueue Representación del TDA MaxQueue.
      *
      * @section invMaxStack Invariante de la representación.
      *
-     * En nuestra MaxStack, se usará una cola basada en la filosofia
-     * LIFO (Last in First out) en lugar de una FIFO (First in First out)
+     * En nuestra MaxQueue, se usará una pila basada en la filosofia
+     * FIFO (First in First out) en lugar de una LIFO (Last in First out)
      *
-     * @section faMaxStack Función de abstración
+     * @section faMaxQueue Función de abstración
      *
-     * fa: tipo_rep ----> MaxStack
-     *     queue<int> ----> max_stack
+     * fa: tipo_rep ----> MaxQueue
+     *     stack<int> ----> _stack
      *
-     *     La estructura queue<int> representa a la MaxStack
+     *     La estructura stack<int> representa a la MaxStack
      */
 
 private:
     /**
      * @brief Cola formada por datos de tipo element
      */
-    stack<element> max_queue;
+    stack<element> _stack;
 
 public:
 
@@ -91,6 +91,12 @@ public:
     MaxQueue& operator= (const MaxQueue &copy);
 
     /**
+     * @brief El número de elementos de la cola
+     * @return Un entero
+     */
+    int size();
+
+    /**
      * @brief Checkea el máximo en la cola
      * @return El máximo a almacenar
      */
@@ -102,13 +108,11 @@ public:
      */
     bool is_empty();
 
+    /**
+     * @brief Devuelve el último elemento insertado en la cola
+     * @return Devuele un element
+     */
     element front();
-
-    element front() const;
-
-    element back();
-
-    const element back() const;
 
     /**
      * @brief Elimina el primer elemento en la cola

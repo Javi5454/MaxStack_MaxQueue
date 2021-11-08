@@ -25,11 +25,11 @@ struct element{
 
 /**
  * @brief Sobrecarga de operador << para el struct element
- * @param flujo Flujo de salida
+ * @param os Flujo de salida
  * @param e Element a mostrar
- * @return El flujo de salida
+ * @return El os de salida
  */
-ostream & operator<<(ostream &flujo, const element &e);
+ostream & operator<<(ostream &os, const element &e);
 
 /**
  * @brief T.D.A MaxStack
@@ -45,6 +45,7 @@ ostream & operator<<(ostream &flujo, const element &e);
  * @author Javier Gómez
  * @date Noviembre 2021
  */
+
 class MaxStack{
     /**
      * @page repMaxStack Representación del TDA Sudoku Killer.
@@ -82,12 +83,10 @@ public:
     MaxStack(const MaxStack &copy);
 
     /**
-     * @brief Sobrecarga del operador de asignacion
-     * @param copy Pila a copiar
-     * @return Referencia al elemento donde se copia
+     * @brief El tamaño de la estructura en función de el número de datos
+     * @return Un entero que representa el número de datos
      */
-    MaxStack& operator= (const MaxStack &copy);
-
+    int size() const;
     /**
      * @brief Checkea el máximo en la pila
      * @return El máximo a almacenar
