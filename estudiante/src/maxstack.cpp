@@ -7,7 +7,7 @@
 #include "maxstack.h"
 
 ostream & operator<<(ostream &flujo, const element &e){
-    flujo << e.value << " | " << e.maximum << endl;
+    flujo << e.value << "," << e.maximum;
 
     return flujo;
 }
@@ -21,22 +21,30 @@ MaxStack::MaxStack(const MaxStack &copy) {
 }
 
 int MaxStack::getMax(int to_check) {
-    if(to_check > top().maximum){
-        return to_check;
+    if(size() != 0){
+        if (top().maximum >= to_check){
+            return top().maximum;
+        }
+        else{
+            return to_check;
+        }
     }
     else{
-        return top().maximum;
+        return to_check;
     }
+}
+
+int MaxStack::size() const {
+    return max_stack.size();
 }
 
 element MaxStack::top() {
     if(max_stack.empty()){
         element empty = {0,0};
-
         return empty;
     }
-    else {
-        return max_stack.front();;
+    else{
+        return max_stack.front();
     }
 }
 
@@ -60,28 +68,20 @@ void MaxStack::push(int to_insert) {
         pair_to_insert.maximum = top().maximum;
     }
 
-    MaxStack aux(*this);
-    max_stack.push(pair_to_insert);
-    int num = max_stack.size() - 1;
+    queue<element> aux;
+    aux.push(pair_to_insert);
 
-    for (int i = 0; i < num; ++i) {
-        max_stack.pop();
+    while(!is_empty()){
+        aux.push(max_stack.front());
+        pop();
     }
 
-    for (int i = 0; i < num; ++i) {
-        max_stack.push(aux.top());
+    while(!aux.empty()){
+        max_stack.push(aux.front());
         aux.pop();
     }
 }
 
 bool MaxStack::is_empty(){
     return max_stack.empty();
-}
-
-MaxStack &MaxStack::operator=(const MaxStack &copy) {
-    if(&copy != this){
-        max_stack = copy.max_stack;
-    }
-
-    return *this;
 }

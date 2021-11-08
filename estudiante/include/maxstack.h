@@ -82,12 +82,10 @@ public:
     MaxStack(const MaxStack &copy);
 
     /**
-     * @brief Sobrecarga del operador de asignacion
-     * @param copy Pila a copiar
-     * @return Referencia al elemento donde se copia
+     * @brief El tamaño de la estructura en función de el número de datos
+     * @return Un entero que representa el número de datos
      */
-    MaxStack& operator= (const MaxStack &copy);
-
+    int size() const;
     /**
      * @brief Checkea el máximo en la pila
      * @return El máximo a almacenar
