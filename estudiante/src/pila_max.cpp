@@ -1,3 +1,9 @@
+/**
+ * @file pila_max.cpp
+ * @brief Implementación de programa de prueba del tipo MaxStack
+ * @author Guillermo Gómez Trenado
+ */
+
 #include <iostream>
 #include "maxstack.h"
 

@@ -1,7 +1,8 @@
 /**
  * @file maxstack.cpp
  * @brief  Archivo de implementación del TDA MaxStack
- * @author
+ * @author Adrián Jaén
+ * @author Javier Gómez
  */
 
 #include "maxstack.h"
@@ -49,7 +50,13 @@ element MaxStack::top() {
 }
 
 const element MaxStack::top() const{
-    return max_stack.front();
+    if(max_stack.empty()){
+        element empty = {0,0};
+        return empty;
+    }
+    else{
+        return max_stack.front();
+    }
 }
 
 void MaxStack::pop() {

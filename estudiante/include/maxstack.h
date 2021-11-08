@@ -37,6 +37,10 @@ ostream & operator<<(ostream &flujo, const element &e);
  * Una instancia del tipo de dato abstracto MaxStack nos permite usar una
  * cola de la misma manera que usamos una pila
  *
+ * El TDA MaxStack proporciona distintos métodos para insertar, eliminar o
+ * consultar elementos de la pila obteniendo siempre el máximo elemento
+ * almacenado
+ *
  * Para poder usar el TDA MaxStack se debe incluir el fichero
  *
  * \#include <maxstack.h>
@@ -86,8 +90,11 @@ public:
      * @return Un entero que representa el número de datos
      */
     int size() const;
+
     /**
      * @brief Checkea el máximo en la pila
+     * @param to_check El elemento que se desea consultar para ver si es
+     * el máximo o no
      * @return El máximo a almacenar
      */
     int getMax(int to_check);
@@ -105,26 +112,30 @@ public:
     element top();
 
     /**
-     * @brief Devuelve el último elemento insertado en la pila
+     * @brief Devuelve el último elemento insertado en la pila de tipo
+     * constante
      * @return Devuele un element
      */
     const element top() const;
 
     /**
      * @brief Elimina el último elemento insertado en la pila
+     * @post Debido a la implementación usada, no es necesario realizar
+     * un nuevo cáclulo del máximo de la pila
+     * @post El objeto implicito ha sido modificado
+     * @post El tamaño del MaxStack decrementa en 1
      */
     void pop();
 
     /**
      * @brief Introduce un elemento en la pila
      * @param to_insert number to insert
+     * @post La pila contendrá al nuevo elemento
+     * @post El objeto implítico ha sido modificado
+     * @post El tamaño del MaxStack aumenta en 1
      */
     void push(int to_insert);
 
-    /**
-     * @brief Devuelve el numero de elementos de la pila
-     * @return Entero número elementos de la pila
-     */
 };
 
 #endif // _MAX_STACK_
