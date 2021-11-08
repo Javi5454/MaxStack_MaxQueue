@@ -1,4 +1,4 @@
-/*! \mainpage Práctica2: TDAs lineales. Pilas y Colas
+/*! \mainpage Práctica3: TDAs lineales. Pilas y Colas
 
 @image html stl.png
 
@@ -37,17 +37,18 @@ El máximo del nuevo elemento se calculará de la siguiente forma
 siendo to_insert el elemento a insertar. El método consulta el anterior máximo almacenado, lo compara con 'to_insert' y
 devuelve el mayor de los dos enteros.
 
-### MaxQeue
+### MaxQueue
 Es una estructura de tipo FIFO, por tanto al insertar elementos el resto de máximos si que se ven afectados.
 
-COMPLETAR
+El máximo del elemento a insertar será el propio elemento, y el máximo del resto será el mayor número entre el máximo 
+actual y el elemento a insertar.
 
 
 # Ejecutables
 
 --
 
-## MaxStack
+## Pila_max
 
 Este programa está diseñado para probar la clase MaxStack. Para ello, creamos un objeto de la clase MaxStack y se utiliza
 un ejemplo con números enteros.
@@ -70,7 +71,28 @@ La siguiente figura muestra como funcionaría la MaxStack para los parámetros i
 
 @image html Pila_max.png
 
+--
 
+## Cola_max
 
+Este programa está diseñado para probar la clase MaxQueue. Para ello, creamos un objeto de la clase MaxQueue y se utiliza
+un ejemplo con números enteros.
+
+> __cola_max__ \<Elementos> \<Puntos>
+Se pueden añadir tantos elementos como se desee y además se pueden intercambiar puntos y elementos.
+@pre El número de puntos debe de ser menor o igual que el de elementos
+@param <Elementos> Elementos (int) que se añadirán a la MaxQueue.
+@param <Puntos> Cada punto imprime por pantalla la cabeza de la MaxQueue y lo saca de esta.
+@return La salida por defecto muestra el elemento con su máximo que esté en el máximo de la MaxQueue cuando aparece un
+punto en la entrada.
+
+Dada una secuencia de datos tipo char, se van leyendo cada uno de estos datos y se va actuando sobre nuestra cola. Un
+"." muestra el elemento del front de la MaxQueue (front()) junto con el máximo que haya en ese momento en la MaxQueue, y tras
+esto se saca el elemento de la MaxQueue (pop()). Si se lee un entero, se procede a introducirlo en la MaxQueue (push()). Se recalcula el máximo del resto de elementos 
+teniendo en cuenta este nuevo elemento y se forma el struct element que se introduce en la MaxQueue.
+
+La siguiente figura muestra como funcionaría la MaxQueue para los parámetros introducidos por el juez.sh (1 2 3 ...)
+
+@image html Cola_max.jpg
 
 */

@@ -91,7 +91,7 @@ public:
      * @return Un entero que representa el número de datos
      */
     int size() const;
-    
+
     /**
      * @brief Checkea el máximo en la pila
      * @param to_check El elemento que se desea consultar para ver si es
