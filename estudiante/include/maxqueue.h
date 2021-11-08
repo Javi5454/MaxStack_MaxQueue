@@ -35,12 +35,12 @@ ostream & operator<<(ostream &os, const element &e);
 /**
  * @brief T.D.A MaxQueue
  *
- * Una instancia del tipo de dato abstracto MaxStack nos permite usar una
+ * Una instancia del tipo de dato abstracto MaxQueue nos permite usar una
  * pila de la misma manera que usamos una cola
  *
- * Para poder usar el TDA MaxStack se debe incluir el fichero
+ * Para poder usar el TDA MaxQueue se debe incluir el fichero
  *
- * \#include <maxstack.h>
+ * \#include <maxqueue.h>
  *
  * @author Adrián Jaén
  * @author Javier Gómez
